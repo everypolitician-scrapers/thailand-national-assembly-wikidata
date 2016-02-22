@@ -18,5 +18,5 @@ def names
   JSON.parse(result, symbolize_names: true)
 end
 
-EveryPolitician::Wikidata.scrape_wikidata(names: { th: names.map { |n| n[:wikiname] } }, output: true)
+EveryPolitician::Wikidata.scrape_wikidata(names: { th: names.map { |n| n[:wikiname] } }, output: false)
 warn EveryPolitician::Wikidata.notify_rebuilder
