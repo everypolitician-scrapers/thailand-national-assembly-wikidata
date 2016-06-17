@@ -4,4 +4,6 @@
 require 'wikidata/fetcher'
 
 names = EveryPolitician::Wikidata.morph_wikinames(source: 'davewhiteland/thailand-national-assembly', column: 'name')
-EveryPolitician::Wikidata.scrape_wikidata(names: { th: names }, output: false)
+ids = %w(Q13020617 Q13016121)
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { th: names })
