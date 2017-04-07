@@ -1,9 +1,11 @@
 #!/bin/env ruby
 # encoding: utf-8
 
+require 'everypolitician'
 require 'wikidata/fetcher'
 
-names = EveryPolitician::Wikidata.morph_wikinames(source: 'davewhiteland/thailand-national-assembly', table: 'wikinames', column: 'name')
-ids = %w(Q13020617 Q13016121)
+existing = EveryPolitician::Index.new.country("Thailand").lower_house.popolo.persons.map(&:wikidata).compact
 
-EveryPolitician::Wikidata.scrape_wikidata(ids: ids, names: { th: names })
+names = EveryPolitician::Wikidata.morph_wikinames(source: 'davewhiteland/thailand-national-assembly', table: 'wikinames', column: 'name')
+
+EveryPolitician::Wikidata.scrape_wikidata(ids: existing, names: { th: names })
