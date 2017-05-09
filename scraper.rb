@@ -6,6 +6,6 @@ require 'wikidata/fetcher'
 
 existing = EveryPolitician::Index.new.country("Thailand").lower_house.popolo.persons.map(&:wikidata).compact
 
-names = EveryPolitician::Wikidata.morph_wikinames(source: 'davewhiteland/thailand-national-assembly', table: 'wikinames', column: 'name')
+names = EveryPolitician::Wikidata.morph_wikinames(source: 'everypolitician-scrapers/thailand-national-assembly', table: 'wikinames', column: 'name')
 
 EveryPolitician::Wikidata.scrape_wikidata(ids: existing, names: { th: names })
